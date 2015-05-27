@@ -179,61 +179,63 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tool_box_friend_icon=0x7f02001e;
     }
     public static final class id {
-        public static final int action_settings=0x7f040026;
-        public static final int addrbook_image=0x7f040013;
-        public static final int addrbook_layout=0x7f040012;
-        public static final int addrbook_text=0x7f040014;
-        public static final int circleBtnLayout=0x7f040019;
-        public static final int content=0x7f04000b;
+        public static final int action_settings=0x7f040027;
+        public static final int addrbook_image=0x7f040014;
+        public static final int addrbook_layout=0x7f040013;
+        public static final int addrbook_text=0x7f040015;
+        public static final int circleBtnLayout=0x7f04001a;
+        public static final int content=0x7f04000c;
         public static final int fullscreen=0x7f040003;
-        public static final int headImageView=0x7f040016;
+        public static final int headImageView=0x7f040017;
         public static final int left=0x7f040001;
-        public static final int llRoot=0x7f040015;
+        public static final int llRoot=0x7f040016;
+        public static final int location_signin_text=0x7f040007;
         public static final int main_area=0x7f040006;
-        public static final int main_area_frame=0x7f04001c;
+        public static final int main_area_frame=0x7f04001d;
         public static final int margin=0x7f040004;
-        public static final int message_image=0x7f04000d;
-        public static final int message_layout=0x7f04000c;
-        public static final int message_text=0x7f04000e;
-        public static final int nickNameTextView=0x7f040017;
+        public static final int message_image=0x7f04000e;
+        public static final int message_layout=0x7f04000d;
+        public static final int message_text=0x7f04000f;
+        public static final int nickNameTextView=0x7f040018;
         public static final int none=0x7f040005;
-        public static final int notification_indicator=0x7f040023;
+        public static final int notification_indicator=0x7f040024;
         public static final int right=0x7f040002;
         public static final int selected_view=0x7f040000;
-        public static final int settingBtnLayout=0x7f04001a;
-        public static final int sliding_menu_frame=0x7f04001d;
-        public static final int slidingmenumain=0x7f04001e;
-        public static final int sortlistview_catalog=0x7f04001f;
-        public static final int sortlistview_country_lvcountry=0x7f040008;
-        public static final int sortlistview_dialog=0x7f040009;
-        public static final int sortlistview_filter_edit=0x7f040007;
-        public static final int sortlistview_item_name=0x7f040021;
-        public static final int sortlistview_item_pic=0x7f040020;
-        public static final int sortlistview_sidrbar=0x7f04000a;
-        public static final int toolbox_title=0x7f040022;
-        public static final int workbenchItemImage=0x7f040024;
-        public static final int workbenchItemText=0x7f040025;
-        public static final int workbench_bar=0x7f04001b;
-        public static final int workbench_image=0x7f040010;
-        public static final int workbench_layout=0x7f04000f;
-        public static final int workbench_text=0x7f040011;
-        public static final int yixinBtnLayout=0x7f040018;
+        public static final int settingBtnLayout=0x7f04001b;
+        public static final int sliding_menu_frame=0x7f04001e;
+        public static final int slidingmenumain=0x7f04001f;
+        public static final int sortlistview_catalog=0x7f040020;
+        public static final int sortlistview_country_lvcountry=0x7f040009;
+        public static final int sortlistview_dialog=0x7f04000a;
+        public static final int sortlistview_filter_edit=0x7f040008;
+        public static final int sortlistview_item_name=0x7f040022;
+        public static final int sortlistview_item_pic=0x7f040021;
+        public static final int sortlistview_sidrbar=0x7f04000b;
+        public static final int toolbox_title=0x7f040023;
+        public static final int workbenchItemImage=0x7f040025;
+        public static final int workbenchItemText=0x7f040026;
+        public static final int workbench_bar=0x7f04001c;
+        public static final int workbench_image=0x7f040011;
+        public static final int workbench_layout=0x7f040010;
+        public static final int workbench_text=0x7f040012;
+        public static final int yixinBtnLayout=0x7f040019;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int fragment_addrbook=0x7f030001;
-        public static final int fragment_main_area=0x7f030002;
-        public static final int fragment_message=0x7f030003;
-        public static final int fragment_sliding_menu=0x7f030004;
-        public static final int fragment_workbench=0x7f030005;
-        public static final int frame_main_area=0x7f030006;
-        public static final int frame_sliding_menu=0x7f030007;
-        public static final int slidingmenumain=0x7f030008;
-        public static final int sortlistview_item=0x7f030009;
-        public static final int toolbox_item_friend=0x7f03000a;
-        public static final int toolbox_item_setting=0x7f03000b;
-        public static final int toolbox_item_yixin=0x7f03000c;
-        public static final int workbench_item=0x7f03000d;
+        public static final int dialog_location_signin=0x7f030001;
+        public static final int fragment_addrbook=0x7f030002;
+        public static final int fragment_main_area=0x7f030003;
+        public static final int fragment_message=0x7f030004;
+        public static final int fragment_sliding_menu=0x7f030005;
+        public static final int fragment_workbench=0x7f030006;
+        public static final int frame_main_area=0x7f030007;
+        public static final int frame_sliding_menu=0x7f030008;
+        public static final int slidingmenumain=0x7f030009;
+        public static final int sortlistview_item=0x7f03000a;
+        public static final int toolbox_item_friend=0x7f03000b;
+        public static final int toolbox_item_setting=0x7f03000c;
+        public static final int toolbox_item_yixin=0x7f03000d;
+        public static final int workbench_item=0x7f03000e;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -241,8 +243,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class string {
         public static final int action_settings=0x7f080002;
         public static final int app_name=0x7f080000;
-        public static final int empty=0x7f080003;
+        public static final int empty=0x7f080004;
         public static final int hello_world=0x7f080001;
+        public static final int location_signin_dialog_title=0x7f080003;
     }
     public static final class style {
         /** 

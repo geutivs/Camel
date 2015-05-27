@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,9 +78,22 @@ public class WorkBenchFragment extends Fragment {
 
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				
+				if(position == 2) {
+					// 定位考勤
+					doLocationSignin();
+				}
+				
+				
 				Toast.makeText(getActivity().getApplicationContext(),
 						"你按下了选项：" + position, Toast.LENGTH_SHORT).show();
 			}
 		});
+	}
+	
+	private void doLocationSignin() {
+		FragmentManager fm = getActivity().getFragmentManager();
+		LocationSigninFragment dialog = new LocationSigninFragment();
+		dialog.show(fm, "localtion_signin");
 	}
 }
