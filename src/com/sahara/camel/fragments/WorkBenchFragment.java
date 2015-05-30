@@ -3,8 +3,11 @@ package com.sahara.camel.fragments;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,9 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.sahara.camel.R;
+import com.sahara.camel.RequestCodeDef;
+import com.sahara.camel.comps.qrcode.MainActivity;
+import com.sahara.camel.comps.qrcode.MipcaActivityCapture;
 
 public class WorkBenchFragment extends Fragment {
 
@@ -59,7 +65,7 @@ public class WorkBenchFragment extends Fragment {
 		map.put("workbenchItemImage", R.drawable.task_notice);
 		map.put("workbenchItemText", "电子公告");
 		menuList.add(map);
-		
+
 		map = new HashMap<String, Object>();
 		map.put("workbenchItemImage", R.drawable.task_management);
 		map.put("workbenchItemText", "企业管理");
@@ -78,22 +84,48 @@ public class WorkBenchFragment extends Fragment {
 
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				
-				if(position == 2) {
+
+				switch (position) {
+				case 2:
 					// 定位考勤
 					doLocationSignin();
+					break;
+				case 3:
+					doScanSignin();
+					break;
 				}
-				
-				
+
 				Toast.makeText(getActivity().getApplicationContext(),
 						"你按下了选项：" + position, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
-	
+
 	private void doLocationSignin() {
 		FragmentManager fm = getActivity().getFragmentManager();
 		LocationSigninFragment dialog = new LocationSigninFragment();
 		dialog.show(fm, "localtion_signin");
+	}
+
+	private void doScanSignin() {
+		Intent intent = new Intent();
+		intent.setClass(getActivity(), MipcaActivityCapture.class);
+		startActivityForResult(intent, RequestCodeDef.CODE_BARCODE_SCAN);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+		case RequestCodeDef.CODE_BARCODE_SCAN:
+			if (resultCode == Activity.RESULT_OK) {
+				Bundle bundle = data.getExtras();
+				// 显示扫描到的内容
+				String barcodeData = bundle.getString("result");
+				Toast.makeText(getActivity(), "条码内容: " + barcodeData,
+						Toast.LENGTH_SHORT).show();
+			}
+			break;
+		}
 	}
 }
