@@ -112,6 +112,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/red"
             android:text="所包含的内容" />
     </LinearLayout>
 

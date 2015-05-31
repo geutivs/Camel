@@ -51,22 +51,22 @@ public class SigninRecordActivity extends Activity {
 	public List<HashMap<String, Object>> getList() {
 		List<HashMap<String, Object>> listChild = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("content", "111111111111111111");
+		map.put("content", "无打卡记录");
 		listChild.add(map);
 		HashMap<String, Object> map1 = new HashMap<String, Object>();
-		map1.put("content", "2222222222222");
+		map1.put("content", "上班未打卡下班正常");
 		listChild.add(map1);
 		HashMap<String, Object> map2 = new HashMap<String, Object>();
-		map2.put("content", "333333333333333333");
+		map2.put("content", "正常上下班");
 		listChild.add(map2);
 		HashMap<String, Object> map3 = new HashMap<String, Object>();
-		map3.put("content", "444444444444444444");
+		map3.put("content", "下班未打卡上班正常");
 		listChild.add(map3);
 		HashMap<String, Object> map4 = new HashMap<String, Object>();
-		map4.put("content", "5555555555555555");
+		map4.put("content", "上班迟到下班未打卡");
 		listChild.add(map4);
 		HashMap<String, Object> map5 = new HashMap<String, Object>();
-		map5.put("content", "66666666666");
+		map5.put("content", "下班迟到上班未打卡");
 		listChild.add(map5);
 		return listChild;
 	}
