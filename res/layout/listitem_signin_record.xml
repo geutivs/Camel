@@ -8,7 +8,7 @@
         android:id="@+id/top_line"
         android:layout_width="2dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="55dp"
         android:background="@color/gray" />
 
     <ImageView
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/top_line"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="45dp"
         android:src="@drawable/timeline_green" />
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/top_line"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="12dp"
         android:text="周日"
         android:textColor="@color/black" />
     
@@ -52,7 +52,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="9dp"
+                    android:textSize="10dp"
                     android:textColor="@color/green"
                     android:text="- -:- -" />
             </LinearLayout>
@@ -72,7 +72,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="9dp"
+                    android:textSize="10dp"
                     android:textColor="@color/green"
                     android:text="17:00" />
             </LinearLayout>
@@ -84,7 +84,7 @@
         android:layout_width="2dp"
         android:layout_height="56dp"
         android:layout_below="@id/img_icon"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="55dp"
         android:background="@color/gray" />
 
     <TextView
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/top_line"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="65dp"
+        android:layout_marginLeft="75dp"
         android:text="2015年10月31日"
         android:textColor="@color/black" />
 
@@ -101,7 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/my_date"
-        android:layout_marginLeft="65dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/timeline_content"
         android:orientation="horizontal" >
