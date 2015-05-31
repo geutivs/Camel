@@ -10,5 +10,9 @@
     
     <string name="empty" />
     
+    <string name="title_signin_record">考勤记录</string>
+    <string name="title_scan_signin">扫码考勤</string>
+    
+    
 
 </resources>

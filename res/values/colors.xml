@@ -8,5 +8,33 @@
     <color name="result_view">#b0000000</color>
     <color name="viewfinder_mask">#60000000</color>
     <color name="possible_result_points">#c0ffff00</color>
+    
+    <color name="red">#EE4000</color>
+    <color name="black">#000000</color>
+	<color name="yellow">#EEEE00</color>
+	<color name="region">#8000ff00</color>
+    <color name="listTitle">#ff23323b</color>
+    <color name="text">#ff848f9b</color>
+    <color name="orange">#ffa500</color>
+    
+    <color name="color_tip">#b6321f</color>
+    
+    <color name="transparent">#00000000</color>
+    <color name="title_sliver">#E6E8FA</color>
+    <color name="gray">#cccccc</color>
+	<color name="dark">#333333</color>
+	<color name="gray_tip">#808080</color>
+	
+	<color name="created_by_other">#ff9933</color>
+	<color name="created_by_self">#00CCFF</color>
+	<color name="list_item_color">#B6DA52</color>  
+	
+	<color name="textColor">#FFFFFF</color>
+    <color name="bgColor">#000000</color>
+    <color name="border_line">#ffd7dadc</color>
+    <color name="green">#008000</color>
+    <color name="light_green">#008a00</color>
+    <color name="light_bule">#b0e0e6</color>
+    <color name="siliver">#c0c0c0</color>
 
 </resources>

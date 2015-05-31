@@ -40,6 +40,13 @@
             android:windowSoftInputMode="stateAlwaysHidden" 
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+        <activity
+            android:name="com.sahara.camel.SigninRecordActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" 
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>

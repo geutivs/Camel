@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 
 import com.sahara.camel.R;
 import com.sahara.camel.RequestCodeDef;
-import com.sahara.camel.comps.qrcode.MainActivity;
+import com.sahara.camel.SigninRecordActivity;
 import com.sahara.camel.comps.qrcode.MipcaActivityCapture;
 
 public class WorkBenchFragment extends Fragment {
@@ -86,6 +85,10 @@ public class WorkBenchFragment extends Fragment {
 					int position, long id) {
 
 				switch (position) {
+				case 1:
+					// ¿¼ÇÚ¼ÇÂ¼
+					doQuerySigninRecord();
+					break;
 				case 2:
 					// ¶¨Î»¿¼ÇÚ
 					doLocationSignin();
@@ -111,6 +114,12 @@ public class WorkBenchFragment extends Fragment {
 		Intent intent = new Intent();
 		intent.setClass(getActivity(), MipcaActivityCapture.class);
 		startActivityForResult(intent, RequestCodeDef.CODE_BARCODE_SCAN);
+	}
+	
+	private void doQuerySigninRecord() {
+		Intent intent = new Intent();
+		intent.setClass(getActivity(), SigninRecordActivity.class);
+		startActivity(intent); 
 	}
 
 	@Override
