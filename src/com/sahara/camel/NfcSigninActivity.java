@@ -96,14 +96,6 @@ public class NfcSigninActivity extends Activity {
 		builder.setPositiveButton(android.R.string.ok,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialogInterface, int i) {
-						Intent intent = new Intent(
-								Settings.ACTION_WIRELESS_SETTINGS);
-						startActivity(intent);
-					}
-				});
-		builder.setNegativeButton(android.R.string.cancel,
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialogInterface, int i) {
 						finish();
 					}
 				});
