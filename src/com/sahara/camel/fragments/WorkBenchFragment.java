@@ -16,6 +16,7 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.sahara.camel.NfcSigninActivity;
 import com.sahara.camel.R;
 import com.sahara.camel.RequestCodeDef;
 import com.sahara.camel.SigninRecordActivity;
@@ -59,6 +60,11 @@ public class WorkBenchFragment extends Fragment {
 		map.put("workbenchItemImage", R.drawable.task_scan_signin);
 		map.put("workbenchItemText", "É¨Âë¿¼ÇÚ");
 		menuList.add(map);
+		
+		map = new HashMap<String, Object>();
+		map.put("workbenchItemImage", R.drawable.task_nfc_signin);
+		map.put("workbenchItemText", "NFC¿¼ÇÚ");
+		menuList.add(map);
 
 		map = new HashMap<String, Object>();
 		map.put("workbenchItemImage", R.drawable.task_notice);
@@ -96,6 +102,9 @@ public class WorkBenchFragment extends Fragment {
 				case 3:
 					doScanSignin();
 					break;
+				case 4:
+					doNfcSignin();
+					break;
 				}
 
 				Toast.makeText(getActivity().getApplicationContext(),
@@ -119,6 +128,12 @@ public class WorkBenchFragment extends Fragment {
 	private void doQuerySigninRecord() {
 		Intent intent = new Intent();
 		intent.setClass(getActivity(), SigninRecordActivity.class);
+		startActivity(intent); 
+	}
+	
+	private void doNfcSignin() {	
+		Intent intent = new Intent();
+		intent.setClass(getActivity(), NfcSigninActivity.class);
 		startActivity(intent); 
 	}
 
