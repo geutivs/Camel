@@ -16,7 +16,6 @@ import android.nfc.tech.MifareClassic;
 import android.nfc.tech.MifareUltralight;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,7 +28,6 @@ public class NfcSigninActivity extends Activity {
 	private Button mButtonBack;
 	private NfcAdapter mAdapter;
 	private PendingIntent mPendingIntent;
-	private AlertDialog mDialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,18 +37,21 @@ public class NfcSigninActivity extends Activity {
 
 		mAdapter = NfcAdapter.getDefaultAdapter(this);
 		if (mAdapter == null) {
-			showMessage(R.string.error, R.string.no_nfc);
-			finish();
+			
+			DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					NfcSigninActivity.this.finish();
+				}		
+			};
+			
+			new AlertDialog.Builder(this).setMessage("您的设备不支持NFC功能").setPositiveButton(R.string.confirm, listener).show(); 
 			return;
 		}
 
 		mPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,
 				getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-	}
-
-	private void showMessage(int title, int message) {
-		new AlertDialog.Builder(this).setTitle(title).setMessage(getText(message))
-				.show();
 	}
 
 	private void initTitleBar() {

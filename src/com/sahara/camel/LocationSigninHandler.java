@@ -179,7 +179,7 @@ public class LocationSigninHandler {
 						+ loc.getLatitude());
 			} else {
 				inProgressDialog.cancel();
-				new AlertDialog.Builder(ctx).setMessage("抱歉，无法获取您的实时位置")
+				new AlertDialog.Builder(ctx).setMessage("无法获取您的实时位置，请确保GPS或者无线网络定位功能已启用并移动至开阔地定位")
 				.setPositiveButton("确定", null).show();
 			}
 		}

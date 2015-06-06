@@ -103,6 +103,7 @@ int id content 0x7f050024
 int id decode 0x7f050002
 int id decode_failed 0x7f050003
 int id decode_succeeded 0x7f050004
+int id dialog_location_signin_content 0x7f05001f
 int id encode_failed 0x7f050005
 int id encode_succeeded 0x7f050006
 int id fullscreen 0x7f050013
@@ -114,7 +115,6 @@ int id include_head 0x7f05001b
 int id launch_product_query 0x7f050007
 int id left 0x7f050011
 int id llRoot 0x7f05002e
-int id location_signin_text 0x7f05001f
 int id main_area 0x7f050019
 int id main_area_frame 0x7f050035
 int id margin 0x7f050014
@@ -187,16 +187,17 @@ int raw beep 0x7f040000
 int raw realm_properties 0x7f040001
 int string action_settings 0x7f090002
 int string app_name 0x7f090000
-int string empty 0x7f090008
+int string confirm 0x7f090006
+int string empty 0x7f090009
 int string error 0x7f090005
 int string hello_world 0x7f090001
 int string location_signin_dialog_title 0x7f090003
-int string nfc_disabled 0x7f090007
-int string no_nfc 0x7f090006
+int string nfc_disabled 0x7f090008
+int string no_nfc 0x7f090007
 int string scan_text 0x7f090004
-int string title_nfc_sigin 0x7f09000b
-int string title_scan_signin 0x7f09000a
-int string title_signin_record 0x7f090009
+int string title_nfc_sigin 0x7f09000c
+int string title_scan_signin 0x7f09000b
+int string title_signin_record 0x7f09000a
 int style AppBaseTheme 0x7f0a0000
 int style AppTheme 0x7f0a0001
 int[] styleable SlidingMenu { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d }
