@@ -23,8 +23,8 @@ public class LocationSigninFragment extends DialogFragment {
 		View view = getActivity().getLayoutInflater().inflate(
 				R.layout.dialog_location_signin, null);
 		
-		locationText = (TextView) view.findViewById(R.id.location_signin_text);
-
+		view.findViewById(R.id.dialog_location_signin_content);
+		
 		LocationManager locationManager = (LocationManager) getActivity()
 				.getSystemService(Context.LOCATION_SERVICE);		
 		
@@ -61,8 +61,7 @@ public class LocationSigninFragment extends DialogFragment {
 			
 		});
 
-		return new AlertDialog.Builder(getActivity())
-				.setTitle(R.string.location_signin_dialog_title).setView(view)
+		return new AlertDialog.Builder(getActivity()).setView(view)
 				.create();
 	}
 	

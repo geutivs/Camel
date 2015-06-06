@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +15,7 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.sahara.camel.LocationSigninHandler;
 import com.sahara.camel.NfcSigninActivity;
 import com.sahara.camel.R;
 import com.sahara.camel.RequestCodeDef;
@@ -114,9 +114,11 @@ public class WorkBenchFragment extends Fragment {
 	}
 
 	private void doLocationSignin() {
-		FragmentManager fm = getActivity().getFragmentManager();
-		LocationSigninFragment dialog = new LocationSigninFragment();
-		dialog.show(fm, "localtion_signin");
+//		FragmentManager fm = getActivity().getFragmentManager();
+//		LocationSigninFragment dialog = new LocationSigninFragment();
+//		dialog.show(fm, "localtion_signin");
+		LocationSigninHandler handler = new LocationSigninHandler(getActivity());
+		handler.doLocationSignin();
 	}
 
 	private void doScanSignin() {
@@ -146,8 +148,8 @@ public class WorkBenchFragment extends Fragment {
 				Bundle bundle = data.getExtras();
 				// 显示扫描到的内容
 				String barcodeData = bundle.getString("result");
-				Toast.makeText(getActivity(), "条码内容: " + barcodeData,
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), barcodeData,
+						Toast.LENGTH_LONG).show();
 			}
 			break;
 		}
