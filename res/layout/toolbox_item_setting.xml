@@ -21,12 +21,12 @@
 
     <ImageView
         android:id="@+id/notification_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="32dp"
         android:contentDescription="@string/empty"
-        android:src="@drawable/tool_box_fragment_settings_icon" />
+        android:src="@drawable/left_menu_setting" />
 
 </RelativeLayout>

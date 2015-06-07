@@ -54,7 +54,11 @@
         <include
             android:id="@+id/settingBtnLayout"
             layout="@layout/toolbox_item_setting" />
-
+        
+        <include
+            android:id="@+id/logoutBtnLayout"
+            layout="@layout/toolbox_item_logout" />
+        
         <View
             android:layout_width="fill_parent"
             android:layout_height="1.3299866dip"
