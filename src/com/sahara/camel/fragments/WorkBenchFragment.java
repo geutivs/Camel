@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +63,7 @@ public class WorkBenchFragment extends Fragment {
 		map.put("workbenchItemImage", R.drawable.task_scan_signin);
 		map.put("workbenchItemText", "扫码考勤");
 		menuList.add(map);
-		
+
 		map = new HashMap<String, Object>();
 		map.put("workbenchItemImage", R.drawable.task_nfc_signin);
 		map.put("workbenchItemText", "NFC考勤");
@@ -114,9 +117,9 @@ public class WorkBenchFragment extends Fragment {
 	}
 
 	private void doLocationSignin() {
-//		FragmentManager fm = getActivity().getFragmentManager();
-//		LocationSigninFragment dialog = new LocationSigninFragment();
-//		dialog.show(fm, "localtion_signin");
+		// FragmentManager fm = getActivity().getFragmentManager();
+		// LocationSigninFragment dialog = new LocationSigninFragment();
+		// dialog.show(fm, "localtion_signin");
 		LocationSigninHandler handler = new LocationSigninHandler(getActivity());
 		handler.doLocationSignin();
 	}
@@ -126,17 +129,25 @@ public class WorkBenchFragment extends Fragment {
 		intent.setClass(getActivity(), MipcaActivityCapture.class);
 		startActivityForResult(intent, RequestCodeDef.CODE_BARCODE_SCAN);
 	}
-	
+
 	private void doQuerySigninRecord() {
 		Intent intent = new Intent();
 		intent.setClass(getActivity(), SigninRecordActivity.class);
-		startActivity(intent); 
+		startActivity(intent);
 	}
-	
-	private void doNfcSignin() {	
-		Intent intent = new Intent();
-		intent.setClass(getActivity(), NfcSigninActivity.class);
-		startActivity(intent); 
+
+	private void doNfcSignin() {
+
+		NfcAdapter mAdapter = NfcAdapter.getDefaultAdapter(getActivity());
+		if (mAdapter == null) {
+			new AlertDialog.Builder(getActivity()).setMessage("您的设备不支持NFC功能")
+					.setPositiveButton(R.string.confirm, null).show();
+			return;
+		} else {
+			Intent intent = new Intent();
+			intent.setClass(getActivity(), NfcSigninActivity.class);
+			startActivity(intent);
+		}
 	}
 
 	@Override
@@ -148,8 +159,8 @@ public class WorkBenchFragment extends Fragment {
 				Bundle bundle = data.getExtras();
 				// 显示扫描到的内容
 				String barcodeData = bundle.getString("result");
-				Toast.makeText(getActivity(), barcodeData,
-						Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), barcodeData, Toast.LENGTH_LONG)
+						.show();
 			}
 			break;
 		}
