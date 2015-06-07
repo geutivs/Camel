@@ -43,12 +43,8 @@ public class WorkBenchFragment extends Fragment {
 
 		ArrayList<HashMap<String, Object>> menuList = new ArrayList<HashMap<String, Object>>();
 
-		// 任务待办
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("workbenchItemImage", R.drawable.task_todo_task);
-		map.put("workbenchItemText", "任务待办");
-		menuList.add(map);
-
+		HashMap<String, Object> map = null;
+		
 		map = new HashMap<String, Object>();
 		map.put("workbenchItemImage", R.drawable.task_attendence_rec);
 		map.put("workbenchItemText", "考勤记录");
@@ -67,6 +63,11 @@ public class WorkBenchFragment extends Fragment {
 		map = new HashMap<String, Object>();
 		map.put("workbenchItemImage", R.drawable.task_nfc_signin);
 		map.put("workbenchItemText", "NFC考勤");
+		menuList.add(map);
+		
+		map = new HashMap<String, Object>();
+		map.put("workbenchItemImage", R.drawable.task_todo_task);
+		map.put("workbenchItemText", "任务待办");
 		menuList.add(map);
 
 		map = new HashMap<String, Object>();
@@ -94,18 +95,20 @@ public class WorkBenchFragment extends Fragment {
 					int position, long id) {
 
 				switch (position) {
-				case 1:
+				case 0:
 					// 考勤记录
 					doQuerySigninRecord();
 					break;
-				case 2:
+				case 1:
 					// 定位考勤
 					doLocationSignin();
 					break;
-				case 3:
+				case 2:
+					// 扫描考勤
 					doScanSignin();
 					break;
-				case 4:
+				case 3:
+					// nfc考勤
 					doNfcSignin();
 					break;
 				}
