@@ -16,6 +16,8 @@ public class LocationSigninHandler {
 	private LocationManager locationManager;
 	private String gpsProvider;
 	private String networkProvider;
+	private Location gpsLocation;
+	private Location networkLocation;
 
 	public LocationSigninHandler(Context context) {
 		this.ctx = context;
@@ -61,8 +63,7 @@ public class LocationSigninHandler {
 
 						@Override
 						public void onLocationChanged(Location location) {
-							// TODO Auto-generated method stub
-
+							gpsLocation = location;
 						}
 
 						@Override
@@ -95,8 +96,7 @@ public class LocationSigninHandler {
 
 						@Override
 						public void onLocationChanged(Location location) {
-							// TODO Auto-generated method stub
-
+							networkLocation = location;
 						}
 
 						@Override
@@ -133,39 +133,45 @@ public class LocationSigninHandler {
 		@Override
 		protected Location doInBackground(Void... params) {
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(3600);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
+			if(gpsLocation != null)
+				return gpsLocation;
+			
+			if(networkLocation != null)
+				return networkLocation;
 
-			if (locationManager == null) {
-				locationManager = (LocationManager) ctx
-						.getSystemService(Context.LOCATION_SERVICE);
-			}
-
-			if (gpsProvider != null) {
-				Location loc = locationManager
-						.getLastKnownLocation(gpsProvider);
-				if (loc != null) {
-					long locTime = loc.getTime();
-					long delta = System.currentTimeMillis() - locTime;
-					if (delta <= 1000 * 60 * 10) {
-						return loc;
-					}
-				}
-			}
-
-			if (networkProvider != null) {
-				Location loc = locationManager
-						.getLastKnownLocation(networkProvider);
-				if (loc != null) {
-					long locTime = loc.getTime();
-					long delta = System.currentTimeMillis() - locTime;
-					if (delta <= 1000 * 60 * 10) {
-						return loc;
-					}
-				}
-			}
+//			if (locationManager == null) {
+//				locationManager = (LocationManager) ctx
+//						.getSystemService(Context.LOCATION_SERVICE);
+//			}
+//
+//			if (gpsProvider != null) {
+//				Location loc = locationManager
+//						.getLastKnownLocation(gpsProvider);
+//				if (loc != null) {
+//					long locTime = loc.getTime();
+//					long delta = System.currentTimeMillis() - locTime;
+//					if (delta <= 1000 * 60 * 10) {
+//						return loc;
+//					}
+//				}
+//			}
+//
+//			if (networkProvider != null) {
+//				Location loc = locationManager
+//						.getLastKnownLocation(networkProvider);
+//				if (loc != null) {
+//					long locTime = loc.getTime();
+//					long delta = System.currentTimeMillis() - locTime;
+//					if (delta <= 1000 * 60 * 10) {
+//						return loc;
+//					}
+//				}
+//			}
 
 			
 			return null;
