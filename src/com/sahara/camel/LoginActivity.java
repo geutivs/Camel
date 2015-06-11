@@ -1,52 +1,56 @@
 package com.sahara.camel;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sahara.camel.fragments.LoginFragment;
+import com.sahara.camel.fragments.LoginFragment.OnSigninBtnClickListener;
+import com.sahara.camel.fragments.LoginWaitFragment;
+import com.sahara.camel.fragments.LoginWaitFragment.OnLoginFailureListener;
+
 public class LoginActivity extends Activity {
-	
-	private TextView mForgetPass;
-	private TextView mSignup;
-	private Button mSigninButton;
-	private EditText mUserAccount;
-	private EditText mUserPass;
+
+	private FragmentManager fManager;
+	private Fragment loginFragment;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
-		
-		mSigninButton = (Button)findViewById(R.id.login_signin_button);
-		mUserAccount = (EditText)findViewById(R.id.login_username_edit);
-		mUserPass =(EditText)findViewById(R.id.login_password_edit);
-		
-		mForgetPass = (TextView)findViewById(R.id.login_forget_pass);
-		mForgetPass.setOnClickListener(new OnClickListener() {
+
+		fManager = getFragmentManager();
+
+		loginFragment = new LoginFragment(new OnSigninBtnClickListener() {
 
 			@Override
-			public void onClick(View v) {
-				Toast.makeText(LoginActivity.this, "Íü¼ÇÃÜÂë", Toast.LENGTH_SHORT).show();				
-			}
-			
-		});
-		
-		mSignup = (TextView)findViewById(R.id.login_signup);
-		mSignup.setOnClickListener(new OnClickListener() {
+			public void onClick(String username, String password) {
+				LoginWaitFragment loginWaitfragment = new LoginWaitFragment(
+						username, password, new OnLoginFailureListener() {
 
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(LoginActivity.this, "Á¢¼´×¢²á", Toast.LENGTH_SHORT).show();
+							@Override
+							public void onLoginFailure() {
+								fManager.beginTransaction()
+										.replace(R.id.login_container,
+												loginFragment).commit();
+								Toast.makeText(LoginActivity.this,
+										"µÇÂ¼Ê§°Ü", Toast.LENGTH_SHORT).show();
+							}
+
+						});
+				fManager.beginTransaction()
+						.replace(R.id.login_container, loginWaitfragment)
+						.commit();
 			}
-			
+
 		});
+		fManager.beginTransaction().add(R.id.login_container, loginFragment)
+				.commit();
+
 	}
 
 }
