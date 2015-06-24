@@ -229,7 +229,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
         public static final int about_version_code=0x7f05000f;
-        public static final int action_settings=0x7f050053;
+        public static final int action_settings=0x7f050054;
         public static final int activity_title=0x7f05001b;
         public static final int addrbook_image=0x7f050036;
         public static final int addrbook_layout=0x7f050035;
@@ -301,14 +301,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sortlistview_sidrbar=0x7f050024;
         public static final int split=0x7f050010;
         public static final int textview_title=0x7f05001f;
+        public static final int toolbox_logout=0x7f050051;
         public static final int toolbox_title=0x7f05004f;
         public static final int top_line=0x7f050042;
         public static final int tv_content=0x7f05004a;
         public static final int tv_time=0x7f050044;
         public static final int viewfinder_view=0x7f050017;
         public static final int webview=0x7f05000e;
-        public static final int workbenchItemImage=0x7f050051;
-        public static final int workbenchItemText=0x7f050052;
+        public static final int workbenchItemImage=0x7f050052;
+        public static final int workbenchItemText=0x7f050053;
         public static final int workbench_bar=0x7f05003f;
         public static final int workbench_image=0x7f050033;
         public static final int workbench_layout=0x7f050032;

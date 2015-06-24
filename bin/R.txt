@@ -102,7 +102,7 @@ int drawable tool_box_fragment_yixin_icon 0x7f020033
 int drawable tool_box_friend_icon 0x7f020034
 int drawable tool_box_sign_out 0x7f020035
 int id about_version_code 0x7f05000f
-int id action_settings 0x7f050053
+int id action_settings 0x7f050054
 int id activity_title 0x7f05001b
 int id addrbook_image 0x7f050036
 int id addrbook_layout 0x7f050035
@@ -172,14 +172,15 @@ int id sortlistview_item_pic 0x7f05004d
 int id sortlistview_sidrbar 0x7f050024
 int id split 0x7f050010
 int id textview_title 0x7f05001f
+int id toolbox_logout 0x7f050051
 int id toolbox_title 0x7f05004f
 int id top_line 0x7f050042
 int id tv_content 0x7f05004a
 int id tv_time 0x7f050044
 int id viewfinder_view 0x7f050017
 int id webview 0x7f05000e
-int id workbenchItemImage 0x7f050051
-int id workbenchItemText 0x7f050052
+int id workbenchItemImage 0x7f050052
+int id workbenchItemText 0x7f050053
 int id workbench_bar 0x7f05003f
 int id workbench_image 0x7f050033
 int id workbench_layout 0x7f050032

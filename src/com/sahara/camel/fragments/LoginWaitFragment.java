@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 
 import com.sahara.camel.MainActivity;
 import com.sahara.camel.R;
+import com.sahara.camel.data.LoginUser;
 import com.sahara.camel.model.UserInfo;
 import com.sahara.camel.network.HttpUtils;
 import com.sahara.camel.network.UrlLocations;
@@ -97,6 +98,8 @@ public class LoginWaitFragment extends Fragment {
 						user.setCardMoney(res.getString("cardmoney"));
 						user.setCompanyId(res.getString("companyid"));
 						user.setCompanyName(res.getString("companyname"));
+						
+						LoginUser.updateUser(user);
 
 						result.user = user;
 						result.msg = "µÇÂ¼³É¹¦";
