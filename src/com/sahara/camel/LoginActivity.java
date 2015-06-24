@@ -33,12 +33,12 @@ public class LoginActivity extends Activity {
 						username, password, new OnLoginFailureListener() {
 
 							@Override
-							public void onLoginFailure() {
+							public void onLoginFailure(String msg) {
 								fManager.beginTransaction()
 										.replace(R.id.login_container,
 												loginFragment).commit();
 								Toast.makeText(LoginActivity.this,
-										"µÇÂ¼Ê§°Ü", Toast.LENGTH_SHORT).show();
+										msg, Toast.LENGTH_SHORT).show();
 							}
 
 						});
