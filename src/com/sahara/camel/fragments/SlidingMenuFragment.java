@@ -48,7 +48,6 @@ public class SlidingMenuFragment extends Fragment {
 				}).setNegativeButton("È¡Ïû",null).show();
 						
 			}
-			
 		});
 		
 		return view;
