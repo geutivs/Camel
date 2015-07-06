@@ -4,21 +4,200 @@
     android:layout_height="fill_parent" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_below="@id/include1"
-        android:paddingTop="35dp" >
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingTop="20dp" >
 
         <com.sahara.camel.RoundedImageView
             android:id="@+id/headImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:adjustViewBounds="true"
-            android:maxHeight="80dp"
-            android:maxWidth="80dp"
+            android:maxHeight="90dp"
+            android:maxWidth="90dp"
             android:src="@drawable/head_default_yixin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="姓名"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="公司:"
+                    android:textColor="@color/contact_section_title"
+                    android:textSize="16sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/contact_company_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="公司名称暂缺"
+                    android:textColor="@color/contact_section_content"
+                    android:textSize="16sp" >
+                </TextView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.3299866dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/contact_section_split" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="部门:"
+                    android:textColor="@color/contact_section_title"
+                    android:textSize="16sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/contact_department_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="部门名称暂缺"
+                    android:textColor="@color/contact_section_content"
+                    android:textSize="16sp" >
+                </TextView>
+            </LinearLayout>
+            
+             <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.3299866dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/contact_section_split" />
+             
+              <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="手机:"
+                    android:textColor="@color/contact_section_title"
+                    android:textSize="16sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/contact_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="手机号码暂缺"
+                    android:textColor="@color/contact_section_content"
+                    android:textSize="16sp" >
+                </TextView>
+            </LinearLayout>
+            
+             <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.3299866dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/contact_section_split" />
+             
+              <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="座机:"
+                    android:textColor="@color/contact_section_title"
+                    android:textSize="16sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/contact_telephone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="座机号码暂缺"
+                    android:textColor="@color/contact_section_content"
+                    android:textSize="16sp" >
+                </TextView>
+            </LinearLayout>
+            
+             <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.3299866dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/contact_section_split" />
+             
+              <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="邮箱:"
+                    android:textColor="@color/contact_section_title"
+                    android:textSize="16sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/contact_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="邮箱地址暂缺"
+                    android:textColor="@color/contact_section_content"
+                    android:textSize="16sp" >
+                </TextView>
+            </LinearLayout>
+            
+             <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.3299866dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/contact_section_split" />
+            
+
+            
+
+           
+        </LinearLayout>
     </LinearLayout>
 
     <include

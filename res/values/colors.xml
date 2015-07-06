@@ -25,6 +25,10 @@
 	<color name="dark">#333333</color>
 	<color name="gray_tip">#808080</color>
 	
+    <color name="contact_section_title">#ff848f9b</color>
+    <color name="contact_section_content">#696969</color>
+	<color name="contact_section_split">#e6e6fa</color>
+	
 	<color name="created_by_other">#ff9933</color>
 	<color name="created_by_self">#00CCFF</color>
 	<color name="list_item_color">#B6DA52</color>  

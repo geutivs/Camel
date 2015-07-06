@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -18,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sahara.camel.ContactActivity;
 import com.sahara.camel.R;
 import com.sahara.camel.widget.sortlistview.CharacterParser;
 import com.sahara.camel.widget.sortlistview.ClearEditText;
@@ -87,8 +89,8 @@ public class AddrBookFragment extends Fragment {
 					int position, long id) {
 				//这里要利用adapter.getItem(position)来获取当前position所对应的对象
 				Toast.makeText(getActivity(), ((SortModel)adapter.getItem(position)).getName(), Toast.LENGTH_SHORT).show();
-//				Intent intent = new Intent(getActivity(), ContactActivity.class);
-//				startActivity(intent);
+				Intent intent = new Intent(getActivity(), ContactActivity.class);
+				startActivity(intent);
 			}
 		});
 		
