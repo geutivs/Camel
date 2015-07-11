@@ -1,5 +1,7 @@
 package com.sahara.camel.fragments;
 
+import java.util.List;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -12,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sahara.camel.R;
+import com.sahara.camel.fragments.AddrBookLoadingFragment.OnContactLoadedListener;
+import com.sahara.camel.widget.sortlistview.SortModel;
 
 public class MainAreaFragment extends Fragment implements OnClickListener {
 
@@ -19,6 +23,7 @@ public class MainAreaFragment extends Fragment implements OnClickListener {
 	private Fragment messageFragment;
 	private Fragment workbenchFragment;
 	private Fragment addrBookFragment;
+	private Fragment contactLoadingFragment;
 
 	// 定义底部导航栏的三个布局
 	private ViewGroup message_layout;
@@ -47,7 +52,7 @@ public class MainAreaFragment extends Fragment implements OnClickListener {
 		View view = inflater.inflate(R.layout.fragment_main_area, container, false);
 		fManager = getFragmentManager();
 		initViews(view);
-		setChioceItem(0);
+		setChioceItem(1);
 
 		return view;
 	}
@@ -129,8 +134,21 @@ public class MainAreaFragment extends Fragment implements OnClickListener {
 					.setBackgroundResource(R.drawable.ic_tabbar_bg_click);
 			if (addrBookFragment == null) {
 				// 如果fg1为空，则创建一个并添加到界面上
-				addrBookFragment = new AddrBookFragment();
-				transaction.add(R.id.content, addrBookFragment);
+				contactLoadingFragment = new AddrBookLoadingFragment(new OnContactLoadedListener() {
+
+					@Override
+					public void onLoaded(List<SortModel> contactList) {
+						addrBookFragment = new AddrBookFragment(contactList);
+						FragmentTransaction transaction = fManager.beginTransaction();
+						transaction.remove(contactLoadingFragment);
+						transaction.add(R.id.content, addrBookFragment);
+						transaction.commit();
+						contactLoadingFragment = null;
+					}
+					
+				});
+				
+				transaction.add(R.id.content, contactLoadingFragment);				
 			} else {
 				// 如果MessageFragment不为空，则直接将它显示出来
 				transaction.show(addrBookFragment);
@@ -150,6 +168,9 @@ public class MainAreaFragment extends Fragment implements OnClickListener {
 		}
 		if (addrBookFragment != null) {
 			transaction.hide(addrBookFragment);
+		}
+		if(contactLoadingFragment != null) {
+			transaction.remove(contactLoadingFragment);
 		}
 	}
 

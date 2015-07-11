@@ -12,5 +12,9 @@ public class UrlLocations {
 	public static final String getLoginUrl() {
 		return URL_PREFIX + "userLogin" + ACTION_SUFFIX ;
 	}
+	
+	public static final String getContactsListUrl() {
+		return URL_PREFIX + "getemplist" + ACTION_SUFFIX;
+	}
 
 }

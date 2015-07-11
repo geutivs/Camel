@@ -47,6 +47,16 @@ public class AddrBookFragment extends Fragment {
 	 */
 	private PinyinComparator pinyinComparator;
 	
+	public AddrBookFragment() {
+		
+	}
+	
+//	private List<SortModel> sourc;
+	
+	public AddrBookFragment(List<SortModel> contactList) {
+		this.SourceDateList = contactList;
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -94,7 +104,7 @@ public class AddrBookFragment extends Fragment {
 			}
 		});
 		
-		SourceDateList = filledData(getResources().getStringArray(R.array.date));
+//		SourceDateList = filledData(getResources().getStringArray(R.array.date));
 		
 		// 根据a-z进行排序源数据
 		Collections.sort(SourceDateList, pinyinComparator);
@@ -125,6 +135,7 @@ public class AddrBookFragment extends Fragment {
 	
 		
 	}
+	
 	/**
 	 * 为ListView填充数据
 	 * @param date
