@@ -1,6 +1,10 @@
 package com.sahara.camel.widget.sortlistview;
 
-public class SortModel {
+import java.io.Serializable;
+
+public class SortModel implements Serializable {
+	
+	private static final long serialVersionUID = 1063211135430057012L;
 	
 	private String name;//显示的数据
 	private String phone;

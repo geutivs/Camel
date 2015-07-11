@@ -20,9 +20,10 @@
             android:adjustViewBounds="true"
             android:maxHeight="90dp"
             android:maxWidth="90dp"
-            android:src="@drawable/head_default_yixin" />
+            android:src="@drawable/cute_head_image" />
 
         <TextView
+            android:id="@+id/contact_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -57,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="公司名称暂缺"
+                    android:text=""
                     android:textColor="@color/contact_section_content"
                     android:textSize="16sp" >
                 </TextView>
@@ -88,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="部门名称暂缺"
+                    android:text=""
                     android:textColor="@color/contact_section_content"
                     android:textSize="16sp" >
                 </TextView>
@@ -119,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="手机号码暂缺"
+                    android:text=""
                     android:textColor="@color/contact_section_content"
                     android:textSize="16sp" >
                 </TextView>
@@ -150,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="座机号码暂缺"
+                    android:text=""
                     android:textColor="@color/contact_section_content"
                     android:textSize="16sp" >
                 </TextView>
@@ -181,7 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="邮箱地址暂缺"
+                    android:text=""
                     android:textColor="@color/contact_section_content"
                     android:textSize="16sp" >
                 </TextView>

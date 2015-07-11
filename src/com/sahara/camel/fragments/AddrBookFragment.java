@@ -98,8 +98,10 @@ public class AddrBookFragment extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				//这里要利用adapter.getItem(position)来获取当前position所对应的对象
-				Toast.makeText(getActivity(), ((SortModel)adapter.getItem(position)).getName(), Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getActivity(), ((SortModel)adapter.getItem(position)).getName(), Toast.LENGTH_SHORT).show();
+				SortModel contact = (SortModel)adapter.getItem(position);
 				Intent intent = new Intent(getActivity(), ContactActivity.class);
+				intent.putExtra(ContactActivity.CONTACT_MODEL, contact);
 				startActivity(intent);
 			}
 		});
