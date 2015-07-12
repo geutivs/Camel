@@ -15,8 +15,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
+import com.sahara.camel.BarcodeSigninHandler;
 import com.sahara.camel.LocationSigninHandler;
 import com.sahara.camel.NfcSigninActivity;
 import com.sahara.camel.R;
@@ -157,10 +157,9 @@ public class WorkBenchFragment extends Fragment {
 		case RequestCodeDef.CODE_BARCODE_SCAN:
 			if (resultCode == Activity.RESULT_OK) {
 				Bundle bundle = data.getExtras();
-				// 显示扫描到的内容
 				String barcodeData = bundle.getString("result");
-				Toast.makeText(getActivity(), barcodeData, Toast.LENGTH_LONG)
-						.show();
+				BarcodeSigninHandler handler = new BarcodeSigninHandler(barcodeData, getActivity());
+				handler.doBarcodeSignin();
 			}
 			break;
 		}
