@@ -19,6 +19,7 @@ import android.widget.SimpleAdapter;
 import com.sahara.camel.BarcodeSigninHandler;
 import com.sahara.camel.LocationSigninHandler;
 import com.sahara.camel.NfcSigninActivity;
+import com.sahara.camel.NfcSigninHandler;
 import com.sahara.camel.R;
 import com.sahara.camel.RequestCodeDef;
 import com.sahara.camel.SigninRecordActivity;
@@ -146,7 +147,7 @@ public class WorkBenchFragment extends Fragment {
 		} else {
 			Intent intent = new Intent();
 			intent.setClass(getActivity(), NfcSigninActivity.class);
-			startActivity(intent);
+			startActivityForResult(intent, RequestCodeDef.CODE_NFC_SINGIN);
 		}
 	}
 
@@ -162,6 +163,15 @@ public class WorkBenchFragment extends Fragment {
 				handler.doBarcodeSignin();
 			}
 			break;
+		case RequestCodeDef.CODE_NFC_SINGIN:
+			if (resultCode == Activity.RESULT_OK) {
+				Bundle bundle = data.getExtras();
+				String nfcData = bundle.getString("result");
+				NfcSigninHandler handler = new NfcSigninHandler(nfcData, getActivity());
+				handler.doNfcSignin();
+			}
+			break;
+			
 		}
 	}
 }

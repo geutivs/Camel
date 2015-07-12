@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class NfcSigninActivity extends Activity {
 
@@ -144,9 +143,13 @@ public class NfcSigninActivity extends Activity {
 
 			String text = builder.toString();
 			text = text.substring(0, text.length() - 1);
+			
+			Intent resultIntent = new Intent();
+			Bundle bundle = new Bundle();
+			bundle.putString("result", text);
+			resultIntent.putExtras(bundle);
+			this.setResult(RESULT_OK, resultIntent);
 
-			Toast.makeText(NfcSigninActivity.this, text, Toast.LENGTH_LONG)
-					.show();
 			finish();
 		}
 	}
