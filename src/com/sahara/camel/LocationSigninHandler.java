@@ -63,7 +63,7 @@ public class LocationSigninHandler {
 		// 设置ProgressDialog 的进度条是否不明确
 		inProgressDialog.setIndeterminate(true);
 		// 设置ProgressDialog 是否可以按退回按键取消
-		inProgressDialog.setCancelable(true);
+		inProgressDialog.setCancelable(false);
 		// 让ProgressDialog显示
 		inProgressDialog.show();
 
@@ -254,11 +254,7 @@ public class LocationSigninHandler {
 				
 			new AlertDialog.Builder(ctx)
 				.setView(v)
-//				.setTitle("")
-//				.setIcon(iconId)
-//				.setMessage(msg)
 			    .setPositiveButton("确定", null).show();
-
 		}
 	}
 }
