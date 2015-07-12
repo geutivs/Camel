@@ -16,5 +16,9 @@ public class UrlLocations {
 	public static final String getContactsListUrl() {
 		return URL_PREFIX + "getemplist" + ACTION_SUFFIX;
 	}
+	
+	public static final String getWorkSigningUrl() {
+		return URL_PREFIX + "attrecord" + ACTION_SUFFIX;
+	}
 
 }
