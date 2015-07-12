@@ -1,6 +1,10 @@
 package com.sahara.camel.model;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo implements Serializable {
+
+	private static final long serialVersionUID = 1367305900974437548L;
 
 	private String empId;
 	private String userName;
@@ -12,6 +16,7 @@ public class UserInfo {
 	private String cardMoney;
 	private String cardNo;
 	private String token;
+	private String mobile;
 
 	public String getEmpId() {
 		return empId;
@@ -91,6 +96,14 @@ public class UserInfo {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 }

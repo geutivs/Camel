@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.sahara.camel.ContactActivity;
 import com.sahara.camel.LoginActivity;
 import com.sahara.camel.R;
 import com.sahara.camel.data.LoginUser;
@@ -19,6 +21,7 @@ import com.sahara.camel.model.UserInfo;
 public class SlidingMenuFragment extends Fragment {
 	
 	private TextView mUserName;
+	private ImageView headImageView;
 	private TextView mLogout;
 	
 	@Override
@@ -27,6 +30,19 @@ public class SlidingMenuFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_sliding_menu, container, false);
 		
 		UserInfo loginUser = LoginUser.getUser();
+		
+		headImageView = (ImageView)view.findViewById(R.id.headImageView);
+		headImageView.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				UserInfo user = LoginUser.getUser();
+				Intent intent = new Intent(getActivity(), ContactActivity.class);
+				intent.putExtra(ContactActivity.CONTACT_MODEL, user);
+				startActivity(intent);	
+			}
+			
+		});
 		
 		mUserName =  (TextView)view.findViewById(R.id.nickNameTextView);
 		mUserName.setText(loginUser.getUserName());

@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.sahara.camel.ContactActivity;
 import com.sahara.camel.R;
+import com.sahara.camel.model.UserInfo;
 import com.sahara.camel.widget.sortlistview.CharacterParser;
 import com.sahara.camel.widget.sortlistview.ClearEditText;
 import com.sahara.camel.widget.sortlistview.PinyinComparator;
@@ -100,8 +101,13 @@ public class AddrBookFragment extends Fragment {
 				//这里要利用adapter.getItem(position)来获取当前position所对应的对象
 //				Toast.makeText(getActivity(), ((SortModel)adapter.getItem(position)).getName(), Toast.LENGTH_SHORT).show();
 				SortModel contact = (SortModel)adapter.getItem(position);
+				
+				UserInfo user = new UserInfo();
+				user.setUserName(contact.getName());
+				user.setMobile(contact.getPhone());
+				
 				Intent intent = new Intent(getActivity(), ContactActivity.class);
-				intent.putExtra(ContactActivity.CONTACT_MODEL, contact);
+				intent.putExtra(ContactActivity.CONTACT_MODEL, user);
 				startActivity(intent);
 			}
 		});
