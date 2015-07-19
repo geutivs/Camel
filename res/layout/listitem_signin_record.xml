@@ -21,7 +21,7 @@
         android:src="@drawable/timeline_green" />
 
     <TextView
-        android:id="@+id/tv_time"
+        android:id="@+id/sign_in_day_in_week"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/top_line"
@@ -36,7 +36,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginLeft="3dp"
             android:orientation="vertical" 
-            android:layout_below="@id/tv_time">
+            android:layout_below="@id/sign_in_day_in_week">
 
             <LinearLayout
                 android:id="@+id/sign_in_time"
@@ -50,6 +50,7 @@
                     android:src="@drawable/ic_green_in" />
 
                 <TextView
+                    android:id="@+id/sign_in_time_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="10dp"
@@ -70,6 +71,7 @@
                     android:src="@drawable/ic_green_out" />
 
                 <TextView
+                    android:id="@+id/sign_out_time_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="10dp"
@@ -88,7 +90,7 @@
         android:background="@color/gray" />
 
     <TextView
-        android:id="@+id/my_date"
+        android:id="@+id/sign_in_record_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/top_line"
@@ -100,14 +102,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/my_date"
+        android:layout_below="@id/sign_in_record_date"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/timeline_content"
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/tv_content"
+            android:id="@+id/sign_in_summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

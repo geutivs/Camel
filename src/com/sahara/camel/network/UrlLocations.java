@@ -20,5 +20,9 @@ public class UrlLocations {
 	public static final String getWorkSigningUrl() {
 		return URL_PREFIX + "attrecord" + ACTION_SUFFIX;
 	}
+	
+	public static final String getSignInRecordQueryUrl() {
+		return URL_PREFIX + "attRecQuery" + ACTION_SUFFIX;
+	}
 
 }
