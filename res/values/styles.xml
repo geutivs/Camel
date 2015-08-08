@@ -18,7 +18,12 @@
     </style>
     
 	<style name="normalText" parent="@android:style/TextAppearance">
-		<item name="android:textColor">#444</item>
+		<item name="android:textColor">#660000</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	
+	<style name="signUpText" parent="@android:style/TextAppearance">
+		<item name="android:textColor">#66CC99</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 </resources>
