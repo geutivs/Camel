@@ -10,14 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sahara.camel.R;
 import com.sahara.camel.SignUpActivity;
 
 public class LoginFragment extends Fragment {
 	
-	private TextView mForgetPass;
 	private TextView mSignup;
 	private Button mSigninButton;
 	private EditText mUserAccount;
@@ -49,16 +47,6 @@ public class LoginFragment extends Fragment {
 					signinBtnListener.onClick(username, password);
 				}	
 				
-			}
-			
-		});
-		
-		mForgetPass = (TextView)v.findViewById(R.id.login_forget_pass);
-		mForgetPass.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getActivity(), "Íü¼ÇÃÜÂë", Toast.LENGTH_SHORT).show();				
 			}
 			
 		});

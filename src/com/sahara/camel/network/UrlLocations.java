@@ -13,6 +13,10 @@ public class UrlLocations {
 		return URL_PREFIX + "userLogin" + ACTION_SUFFIX ;
 	}
 	
+	public static final String getSignUpUrl() {
+		return URL_PREFIX + "addcompany" + ACTION_SUFFIX ;
+	}
+	
 	public static final String getContactsListUrl() {
 		return URL_PREFIX + "getemplist" + ACTION_SUFFIX;
 	}

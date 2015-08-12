@@ -28,6 +28,24 @@
             android:layout_below="@id/signup_user_account_text"
             android:inputType="text"
             android:singleLine="true" />
+        
+         <TextView
+            android:id="@+id/signup_user_name_text"
+            style="@style/signUpText"
+            android:layout_below="@id/signup_user_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="用户姓名" />
+
+        <EditText
+            android:id="@+id/signup_user_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signup_user_name_text"
+            android:inputType="text"
+            android:singleLine="true" />
+        
         <!-- 密码 text -->
 
         <TextView
@@ -35,7 +53,7 @@
             style="@style/signUpText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/signup_user_account"
+            android:layout_below="@id/signup_user_name"
             android:layout_marginTop="3dp"
             android:text="请输入密码" />
 
