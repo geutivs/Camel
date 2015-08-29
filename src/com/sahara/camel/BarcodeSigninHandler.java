@@ -74,8 +74,8 @@ public class BarcodeSigninHandler {
 					.parse(url)
 					.buildUpon()
 					.appendQueryParameter("companyid", user.getCompanyId())
-					.appendQueryParameter("token", user.getToken())
-					.appendQueryParameter("empid", user.getEmpId())
+//					.appendQueryParameter("token", user.getToken())
+//					.appendQueryParameter("empid", user.getEmpId())
 					.appendQueryParameter("atttype",
 							SigninType.BARCODE.getType() + "")
 					.appendQueryParameter("attinfo", barcode)

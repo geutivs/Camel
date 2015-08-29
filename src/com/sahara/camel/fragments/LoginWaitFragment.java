@@ -1,6 +1,8 @@
 package com.sahara.camel.fragments;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,7 +10,6 @@ import org.json.JSONTokener;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,10 +22,13 @@ import com.sahara.camel.MainActivity;
 import com.sahara.camel.R;
 import com.sahara.camel.data.LoginUser;
 import com.sahara.camel.model.UserInfo;
+import com.sahara.camel.network.HttpResult;
 import com.sahara.camel.network.HttpUtils;
 import com.sahara.camel.network.UrlLocations;
 
 public class LoginWaitFragment extends Fragment {
+
+	private static final String TAG = "LoginWaitFragment";
 
 	ProgressBar loginProgress;
 	private String username;
@@ -50,69 +54,73 @@ public class LoginWaitFragment extends Fragment {
 
 		return v;
 	}
-	
+
 	class LoginTaskResult {
 		UserInfo user;
 		String msg;
+		boolean isSuccess;
 	}
 
 	class LoginTask extends AsyncTask<Void, Void, LoginTaskResult> {
-		
+
 		@Override
 		protected LoginTaskResult doInBackground(Void... params) {
-			
+
 			LoginTaskResult result = new LoginTaskResult();
 
 			String url = UrlLocations.getLoginUrl();
+			
+			Map<String, String> paramMap = new HashMap<String, String>();
+			paramMap.put("phone_number", username);
+			paramMap.put("password", password);
 
-			String urlSpec = Uri.parse(url).buildUpon()
-					.appendQueryParameter("utel", username)
-					.appendQueryParameter("upwd", password).build().toString();
-
-			String response = null;
+			HttpResult r = null;
 			try {
-				response = HttpUtils.get(urlSpec);
+				r = HttpUtils.post(url, paramMap, null);
 			} catch (IOException e1) {
-				e1.printStackTrace();
-				result.msg = "Õ¯¬Á∑√Œ “Ï≥££¨«Î…‘∫Ú‘Ÿ ‘";
+				Log.e(TAG, "Fail to access URL " + url, e1);
+				result.isSuccess = false;
+				result.msg = "Õ¯¬Á∑√Œ “Ï≥£";
 				return result;
 			}
-			
-			Log.d("LoginWaitFragment", response);
-			
-			UserInfo user = null;
-			if (response != null) {
 
-				JSONTokener jsonParser = new JSONTokener(response);
-				try {
-					JSONObject res = (JSONObject) jsonParser.nextValue();
-					String status = res.getString("status");
-					if (status.equals("00000")) {
-						// SUCCESS
-						user = new UserInfo();
+			if (r != null) {
 
-						user.setUserName(res.getString("username"));
-						user.setEmpId(res.getString("empid"));
-						user.setUserType(res.getString("usertype"));
-						user.setToken(res.getString("token"));
-						user.setDeptId(res.getString("deptcode"));
-						user.setDeptName(res.getString("deptname"));
-						user.setCardNo(res.getString("cardno"));
-						user.setCardMoney(res.getString("cardmoney"));
-						user.setCompanyId(res.getString("companyid"));
-						user.setCompanyName(res.getString("companyname"));
+				if (r.isSuccess()) {
+
+					JSONTokener jsonParser = new JSONTokener(r.getData());
+					try {
+						JSONObject res = (JSONObject) jsonParser.nextValue();
 						
-						LoginUser.updateUser(user);
-
-						result.user = user;
+						LoginUser.setAuthToken(res.getString("auth_token"));
+						
+						JSONObject userRes = res.getJSONObject("user");
+						UserInfo user = new UserInfo();
+						user.setPhoneNumber(userRes.getString("phone_number"));
+						user.setId(userRes.getInt("id"));
+						user.setRole(userRes.getInt("role"));
+						user.setNickname(userRes.getString("nickname"));
+						user.setGender(userRes.getInt("gender"));
+						user.setProfileImageUrl(userRes.getString("profile_image_url"));
+						user.setCompanyId(userRes.getString("company_id"));
+						user.setEmail(userRes.getString("email"));
+						user.setLandline(userRes.getString("landline"));
+						user.setReferrerPhoneNumber(userRes.getString("referrer_phone_number"));
+						user.setCreateTime(userRes.getLong("create_time"));
+						
+						LoginUser.setUser(user);
+						
+						result.isSuccess = true;
 						result.msg = "µ«¬º≥…π¶";
-					} else {
-						result.msg = "µ«¬º ß∞‹";
+
+					} catch (JSONException e) {
+						result.isSuccess = false;
+						result.msg = "œ˚œ¢Ω‚Œˆ¥ÌŒÛ";
 					}
 
-				} catch (JSONException e) {
-					e.printStackTrace();
-					result.msg = "œ˚œ¢Ω‚Œˆ¥ÌŒÛ";
+				} else {
+					result.isSuccess = false;
+					result.msg = r.getMessage();
 				}
 			}
 
@@ -121,11 +129,10 @@ public class LoginWaitFragment extends Fragment {
 
 		@Override
 		protected void onPostExecute(LoginTaskResult result) {
-			
-			UserInfo user = result.user;
+
 			String msg = result.msg;
-			
-			if (user != null) {
+
+			if (result.isSuccess) {
 				Intent i = new Intent(getActivity(), MainActivity.class);
 				startActivity(i);
 			} else {

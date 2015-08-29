@@ -14,7 +14,7 @@
         android:drawablePadding="20dp"
         android:gravity="center"
         android:singleLine="true"
-        android:text="意见反馈"
+        android:text="修改密码"
         android:textColor="#ffccccc6"
         android:textSize="16.0sp"
         android:textStyle="bold" />

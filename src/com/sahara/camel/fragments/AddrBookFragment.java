@@ -103,8 +103,8 @@ public class AddrBookFragment extends Fragment {
 				SortModel contact = (SortModel)adapter.getItem(position);
 				
 				UserInfo user = new UserInfo();
-				user.setUserName(contact.getName());
-				user.setMobile(contact.getPhone());
+				user.setNickname(contact.getName());
+				user.setPhoneNumber(contact.getPhone());
 				
 				Intent intent = new Intent(getActivity(), ContactActivity.class);
 				intent.putExtra(ContactActivity.CONTACT_MODEL, user);

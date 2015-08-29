@@ -1,15 +1,14 @@
 package com.sahara.camel;
 
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,9 +20,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sahara.camel.network.HttpResult;
 import com.sahara.camel.network.HttpUtils;
 import com.sahara.camel.network.UrlLocations;
-import com.sahara.camel.utils.Hex;
 
 public class SignUpActivity extends Activity {
 	
@@ -36,7 +35,6 @@ public class SignUpActivity extends Activity {
 	private EditText mUserAccount;
 	private EditText mUserPassword;
 	private EditText mUserPasswordAgain;
-	private EditText mUserCompany;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -49,7 +47,6 @@ public class SignUpActivity extends Activity {
 		mUserName = (EditText) findViewById(R.id.signup_user_name);
 		mUserPassword = (EditText) findViewById(R.id.signup_user_password);
 		mUserPasswordAgain = (EditText) findViewById(R.id.signup_user_password_again);
-		mUserCompany = (EditText) findViewById(R.id.signup_user_company);
 
 		mButtonSignUp = (Button) findViewById(R.id.signup_action_button);
 		mButtonSignUp.setOnClickListener(new OnClickListener() {
@@ -62,7 +59,6 @@ public class SignUpActivity extends Activity {
 				String userPassword = mUserPassword.getText().toString();
 				String userPasswordAgain = mUserPasswordAgain.getText()
 						.toString();
-				String userCompany = mUserCompany.getText().toString().trim();
 
 				if (userAccount.isEmpty()) {
 					Toast.makeText(SignUpActivity.this, "请输入手机账号",
@@ -91,14 +87,6 @@ public class SignUpActivity extends Activity {
 					mUserPasswordAgain.requestFocus();
 					return;
 				}
-				
-				if(userCompany.isEmpty()) {
-					Toast.makeText(SignUpActivity.this, "请输入公司名称",
-							Toast.LENGTH_SHORT).show();
-					mUserCompany.requestFocus();
-					return;
-				}
-				
 
 				if (!userPassword.equals(userPasswordAgain)) {
 					Toast.makeText(SignUpActivity.this, "两次输入的密码不匹配,请重新输入",
@@ -132,6 +120,7 @@ public class SignUpActivity extends Activity {
 	class SignupResult {
 		boolean isSuccess;
 		String msg;
+		int userId;
 	}
 	
 	class SignupTask extends AsyncTask<Void, Void, SignupResult> {
@@ -142,58 +131,47 @@ public class SignUpActivity extends Activity {
 			String userAccount = mUserAccount.getText().toString().trim();
 			String userName = mUserName.getText().toString().trim();
 			String userPassword = mUserPassword.getText().toString();
-			String userCompany = mUserCompany.getText().toString().trim();
+			String userPasswordAgain = mUserPasswordAgain.getText()
+					.toString();
 			
 			SignupResult result = new SignupResult();
-			
-			// 密码的MD5
-			MessageDigest md5 = null;
-			try {
-				md5 = MessageDigest.getInstance("MD5");
-			} catch (NoSuchAlgorithmException e2) {
-				e2.printStackTrace();
-			}
-			md5.update(userPassword.getBytes());
-			byte[] m = md5.digest();// 加密
-			String md5ForPassword = Hex.encodeHexStr(m, false);
-			
+		
 			String url = UrlLocations.getSignUpUrl();
 			
-			String urlSpec = Uri.parse(url).buildUpon()
-					.appendQueryParameter("companyname", userCompany)
-					.appendQueryParameter("username", userName)
-					.appendQueryParameter("account", userAccount)
-					.appendQueryParameter("userpwd", md5ForPassword)
-					.build().toString();
-
-			String response = null;
+			Map<String, String> paramMap = new HashMap<String, String>();
+			paramMap.put("phone_number", userAccount);
+			paramMap.put("password", userPassword);
+			paramMap.put("confirm_password", userPasswordAgain);
+						
+			HttpResult r = null;
 			try {
-				response = HttpUtils.get(urlSpec);
+				r = HttpUtils.post(url, paramMap, null);
 			} catch (IOException e1) {
-				Log.e(TAG, "Fail to access URL " + urlSpec, e1);
+				Log.e(TAG, "Fail to access URL " + url, e1);
+				result.isSuccess = false;
+				result.msg = "网络访问异常";
 			}
 
-			if (response != null) {
-
-				JSONTokener jsonParser = new JSONTokener(response);
-				try {
-					JSONObject res = (JSONObject) jsonParser.nextValue();
-					String status = res.getString("status");
-					String summary = res.getString("summary");
-					if (status.equals("00000")) {
-						
+			if (r != null) {
+				
+				if(r.isSuccess()) {
+					
+					JSONTokener jsonParser = new JSONTokener(r.getData());
+					try {
+						JSONObject res = (JSONObject) jsonParser.nextValue();
+						int userId = res.getInt("id");
 						result.isSuccess = true;
 						result.msg = "注册成功";
-						
-					} else {
-						result.isSuccess = false;
-						result.msg = summary;
-					}
+						result.userId = userId;
 
-				} catch (JSONException e) {
-					e.printStackTrace();
+					} catch (JSONException e) {
+						result.isSuccess = false;
+						result.msg = "消息解析错误";
+					}
+					
+				} else {
 					result.isSuccess = false;
-					result.msg = "消息解析错误";
+					result.msg = r.getMessage();
 				}
 			}
 			
@@ -207,7 +185,7 @@ public class SignUpActivity extends Activity {
 				Toast.makeText(SignUpActivity.this, result.msg, Toast.LENGTH_SHORT).show();
 				SignUpActivity.this.finish();
 			} else {
-				Toast.makeText(SignUpActivity.this, result.msg, Toast.LENGTH_SHORT).show();
+				Toast.makeText(SignUpActivity.this, result.msg, Toast.LENGTH_LONG).show();
 			}		
 		}
 	}

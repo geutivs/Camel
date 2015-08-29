@@ -29,25 +29,25 @@ public class ContactActivity extends Activity {
 		setContentView(R.layout.activity_contact);
 		
 		nameView = (TextView)findViewById(R.id.contact_name);
-		String name = contact.getUserName();
+		String name = contact.getNickname();
 		if(name != null) {
 			nameView.setText(name);
 		}
 		
 		mobileView = (TextView)findViewById(R.id.contact_mobile);
-		String mobile = contact.getMobile();
+		String mobile = contact.getPhoneNumber();
 		if(mobile != null) {
 			mobileView.setText(mobile);
 		}
 		
 		companyView = (TextView)findViewById(R.id.contact_company_id);
-		String companyName = contact.getCompanyName();
+		String companyName = "公司名字";
 		if(companyName != null) {
 			companyView.setText(companyName);
 		}
 		
 		departmentView = (TextView)findViewById(R.id.contact_department_id);
-		String departmentName = contact.getDeptName();
+		String departmentName = "部门名字";
 		if(departmentName != null) {
 			departmentView.setText(departmentName);
 		}

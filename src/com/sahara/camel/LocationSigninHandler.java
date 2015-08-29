@@ -180,8 +180,8 @@ public class LocationSigninHandler {
 						.parse(url)
 						.buildUpon()
 						.appendQueryParameter("companyid", user.getCompanyId())
-						.appendQueryParameter("token", user.getToken())
-						.appendQueryParameter("empid", user.getEmpId())
+//						.appendQueryParameter("token", user.getToken())
+//						.appendQueryParameter("empid", user.getEmpId())
 						.appendQueryParameter("atttype",
 								SigninType.LOCATION.getType() + "")
 						.appendQueryParameter("attinfo",

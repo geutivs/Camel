@@ -69,8 +69,8 @@ public class AddrBookLoadingFragment extends Fragment  {
 
 			String urlSpec = Uri.parse(url).buildUpon()
 					.appendQueryParameter("companyid", loginUser.getCompanyId())
-					.appendQueryParameter("token", loginUser.getToken())
-					.appendQueryParameter("empid", loginUser.getEmpId())
+//					.appendQueryParameter("token", loginUser.getToken())
+//					.appendQueryParameter("empid", loginUser.getEmpId())
 					.appendQueryParameter("pindex", "0")
 					.appendQueryParameter("psize", "256")
 					.build().toString();

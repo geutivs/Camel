@@ -6,56 +6,64 @@ public class UserInfo implements Serializable {
 
 	private static final long serialVersionUID = 1367305900974437548L;
 
-	private String empId;
-	private String userName;
-	private String userType;
-	private String deptId;
-	private String deptName;
+	private int id;
+	private String phoneNumber;
+	private int role;
+	private String nickname;
+	private int gender;
+	private String profileImageUrl;
 	private String companyId;
-	private String companyName;
-	private String cardMoney;
-	private String cardNo;
-	private String token;
-	private String mobile;
+	private String email;
+	private String landline;
+	private String referrerPhoneNumber;
+	private long createTime;
 
-	public String getEmpId() {
-		return empId;
+	public int getId() {
+		return id;
 	}
 
-	public void setEmpId(String empId) {
-		this.empId = empId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getUserType() {
-		return userType;
+	public int getRole() {
+		return role;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setRole(int role) {
+		this.role = role;
 	}
 
-	public String getDeptId() {
-		return deptId;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setDeptId(String deptId) {
-		this.deptId = deptId;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
-	public String getDeptName() {
-		return deptName;
+	public int getGender() {
+		return gender;
 	}
 
-	public void setDeptName(String deptName) {
-		this.deptName = deptName;
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+
+	public String getProfileImageUrl() {
+		return profileImageUrl;
+	}
+
+	public void setProfileImageUrl(String profileImageUrl) {
+		this.profileImageUrl = profileImageUrl;
 	}
 
 	public String getCompanyId() {
@@ -66,44 +74,40 @@ public class UserInfo implements Serializable {
 		this.companyId = companyId;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getCardMoney() {
-		return cardMoney;
+	public String getLandline() {
+		return landline;
 	}
 
-	public void setCardMoney(String cardMoney) {
-		this.cardMoney = cardMoney;
+	public void setLandline(String landline) {
+		this.landline = landline;
 	}
 
-	public String getCardNo() {
-		return cardNo;
+	public String getReferrerPhoneNumber() {
+		return referrerPhoneNumber;
 	}
 
-	public void setCardNo(String cardNo) {
-		this.cardNo = cardNo;
+	public void setReferrerPhoneNumber(String referrerPhoneNumber) {
+		this.referrerPhoneNumber = referrerPhoneNumber;
 	}
 
-	public String getToken() {
-		return token;
+	public long getCreateTime() {
+		return createTime;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setCreateTime(long createTime) {
+		this.createTime = createTime;
 	}
 
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

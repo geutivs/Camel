@@ -23,6 +23,7 @@ public class SlidingMenuFragment extends Fragment {
 	private TextView mUserName;
 	private ImageView headImageView;
 	private TextView mLogout;
+	private TextView mChangePass;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,7 +46,18 @@ public class SlidingMenuFragment extends Fragment {
 		});
 		
 		mUserName =  (TextView)view.findViewById(R.id.nickNameTextView);
-		mUserName.setText(loginUser.getUserName());
+		mUserName.setText(loginUser.getNickname());
+		
+		mChangePass = (TextView)view.findViewById(R.id.toolbox_title);
+		mChangePass.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+				
+		});
 		
 		mLogout = (TextView)view.findViewById(R.id.toolbox_logout);
 		mLogout.setOnClickListener(new OnClickListener() {
@@ -68,5 +80,4 @@ public class SlidingMenuFragment extends Fragment {
 		
 		return view;
 	}
-
 }

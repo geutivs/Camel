@@ -84,31 +84,13 @@
             android:inputType="textPassword"
             android:password="true"
             android:singleLine="true"/>
-            
-        <TextView
-            android:id="@+id/signup_user_company_text"
-            style="@style/signUpText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/signup_user_password_again"
-            android:layout_marginTop="5dp"
-            android:text="企业名称" />
-
-        <EditText
-            android:id="@+id/signup_user_company"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/signup_user_company_text"
-            android:inputType="text"
-            android:singleLine="true" />
-        <!-- 密码 text -->
 
         <Button
             android:id="@+id/signup_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/signup_user_company"
+            android:layout_below="@id/signup_user_password_again"
 			android:layout_marginTop="6dp"
             android:background="@drawable/blue_button"
             android:text="立即注册" />
