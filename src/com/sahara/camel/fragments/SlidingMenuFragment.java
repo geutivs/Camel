@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sahara.camel.ContactActivity;
+import com.sahara.camel.FirmListActivity;
 import com.sahara.camel.LoginActivity;
 import com.sahara.camel.R;
 import com.sahara.camel.data.LoginUser;
@@ -24,6 +25,7 @@ public class SlidingMenuFragment extends Fragment {
 	private ImageView headImageView;
 	private TextView mLogout;
 	private TextView mChangePass;
+	private TextView mFirmList;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +50,17 @@ public class SlidingMenuFragment extends Fragment {
 		mUserName =  (TextView)view.findViewById(R.id.nickNameTextView);
 		mUserName.setText(loginUser.getNickname());
 		
-		mChangePass = (TextView)view.findViewById(R.id.toolbox_title);
+		mFirmList = (TextView)view.findViewById(R.id.toolbox_firmlist);
+		mFirmList.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent i  = new Intent(getActivity(), FirmListActivity.class);
+				startActivity(i);
+			}			
+		});
+		
+		mChangePass = (TextView)view.findViewById(R.id.toolbox_changepass);
 		mChangePass.setOnClickListener(new OnClickListener() {
 
 			@Override

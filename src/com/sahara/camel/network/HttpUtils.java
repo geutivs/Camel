@@ -101,9 +101,9 @@ public class HttpUtils {
 			JSONTokener jsonParser = new JSONTokener(data);
 			try {
 				JSONObject res = (JSONObject) jsonParser.nextValue();
-				res.getJSONObject("error");
-				int code = res.getInt("code");
-				String message = res.getString("message");
+				JSONObject errRes = res.getJSONObject("error");
+				int code = errRes.getInt("code");
+				String message = errRes.getString("message");
 				
 				result.setCode(code);
 				result.setMessage(message);

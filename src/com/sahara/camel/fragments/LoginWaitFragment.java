@@ -120,7 +120,7 @@ public class LoginWaitFragment extends Fragment {
 
 				} else {
 					result.isSuccess = false;
-					result.msg = r.getMessage();
+					result.msg = "µÇÂ¼Ê§°Ü:" + r.getMessage();
 				}
 			}
 

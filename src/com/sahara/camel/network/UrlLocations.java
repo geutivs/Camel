@@ -14,6 +14,10 @@ public class UrlLocations {
 	public static final String getSignUpUrl() {
 		return URL_PREFIX + "register";
 	}
+	
+	public static final String getCreateFirmUrl() {
+		return URL_PREFIX + "company";
+	}
 
 	public static final String getEditPwdUrl() {
 		return URL_PREFIX + "editpwd";

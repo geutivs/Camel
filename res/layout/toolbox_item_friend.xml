@@ -5,7 +5,7 @@
     android:background="@drawable/tool_box_fragment_bg_selector" >
 
     <TextView
-        android:id="@+id/toolbox_title"
+        android:id="@+id/toolbox_changepass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
